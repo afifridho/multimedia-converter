@@ -12,7 +12,6 @@
         <option value="png">png</option>
         <option value="bmp">bmp</option>
         <option value="tiff">tiff</option>
-        <option value="exif">exif</option>
       </select>
     </div>
     <div class="form-group">

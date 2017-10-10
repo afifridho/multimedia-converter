@@ -25,8 +25,9 @@ class ConverterController extends Controller
         $destinationPath = public_path('/videos');
         $video->move($destinationPath, $videoinput);
         $videopath = $destinationPath.'/'.$videoinput;
+        $scriptpath = public_path('/script').'/videoconverter.py';
 
-        $process = new Process('python /home/afifridho/Downloads/convert.py '.$videopath.' '.$request->videoformat.' '.$request->audioformat.' '.$request->samplerate.' '.$request->channel.' '.$request->videocodec.' '.$request->videowidth.' '.$request->videoheight.' '.$request->fps);
+        $process = new Process('python '.$scriptpath.' '.$videopath.' '.$request->videoformat.' '.$request->audioformat.' '.$request->samplerate.' '.$request->channel.' '.$request->videocodec.' '.$request->videowidth.' '.$request->videoheight.' '.$request->fps);
         $process->run();
 
         File::delete($videopath);
@@ -59,7 +60,9 @@ class ConverterController extends Controller
         $destinationPath = public_path('/images');
         $image->move($destinationPath, $imageinput);
         $imagepath = $destinationPath.'/'.$imageinput;
-        $process = new Process('python /home/afifridho/Downloads/imageconverter.py '.$imagepath.' '.$destinationPath.'/'.$imagetmp.'.'.$request->imageformat.' '.$request->width.' '.$request->height.' '.$request->mode);
+        $scriptpath = public_path('/script').'/imageconverter.py';
+
+        $process = new Process('python '.$scriptpath.' '.$imagepath.' '.$destinationPath.'/'.$imagetmp.'.'.$request->imageformat.' '.$request->width.' '.$request->height.' '.$request->mode);
         $process->run();
 
         File::delete($imagepath);
