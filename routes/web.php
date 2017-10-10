@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/converter/video', function () {
+    return view('videoconvert');
+});
+Route::post('/converter/video', 'ConverterController@videoconverter');
+
+Route::get('/converter/audio', function () {
+    return view('audioconvert');
+});
+Route::post('/converter/audio', 'ConverterController@audioconverter');
+
+
+Route::get('/testprocess', 'VideoConverter@process');
