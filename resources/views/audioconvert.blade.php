@@ -3,7 +3,7 @@
   <div class="box-body">
     <div class="form-group">
       <label for="exampleInputFile">File input:</label>
-      <input type="file" name="audio">
+      <input type="file" name="image">
     </div>
     <div class="form-group">
       <label>Format:</label>

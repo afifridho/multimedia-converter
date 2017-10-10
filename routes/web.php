@@ -25,5 +25,10 @@ Route::get('/converter/audio', function () {
 });
 Route::post('/converter/audio', 'ConverterController@audioconverter');
 
+Route::get('/converter/image', function () {
+    return view('imageconvert');
+});
+Route::post('/converter/image', 'ConverterController@imageconverter');
+
 
 Route::get('/testprocess', 'VideoConverter@process');

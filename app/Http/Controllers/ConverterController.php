@@ -51,4 +51,20 @@ class ConverterController extends Controller
 
     }
 
+    public function imageconverter(Request $request)
+    {
+        $imagetmp = time();
+        $image = $request->file('image');
+        $imageinput = $imagetmp.'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $imageinput);
+        $imagepath = $destinationPath.'/'.$imageinput;
+        $process = new Process('python /home/afifridho/Downloads/imageconverter.py '.$imagepath.' '.$destinationPath.'/'.$imagetmp.'.'.$request->imageformat.' '.$request->width.' '.$request->height.' '.$request->mode);
+        $process->run();
+
+        File::delete($imagepath);
+        return response()->download($destinationPath.'/'.$imagetmp.'.'.$request->imageformat);
+
+    }
+
 }
