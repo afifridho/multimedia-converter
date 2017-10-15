@@ -44,7 +44,7 @@ class ConverterController extends Controller
         $audio->move($destinationPath, $audioinput);
         $audiopath = $destinationPath.'/'.$audioinput;
 
-        $process = new Process('ffmpeg -i '.$audiopath.' -b:a '.$request->bitrate.' -ac '.$request->channel.' -ar '.$request->samplerate.' '.$destinationPath.'/'.$audiotmp.'.'.$request->audioformat);
+        $process = new Process('ffmpeg -i '.$audiopath.' -b:v '.$request->bitrate.' -ac '.$request->channel.' -ar '.$request->samplerate.' '.$destinationPath.'/'.$audiotmp.'.'.$request->audioformat);
         $process->run();
 
         File::delete($audiopath);

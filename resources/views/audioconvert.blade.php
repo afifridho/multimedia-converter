@@ -18,7 +18,7 @@
     <link href="{{ url('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic') }}" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url('') }}/assets/css/landing-page.css" rel="stylesheet">  
+    <link href="{{ url('') }}/assets/css/landing-page.css" rel="stylesheet">
 
   </head>
 
@@ -58,29 +58,50 @@
   <div class="box-body">
     <div class="form-group">
       <label for="exampleInputFile">File input:</label>
-      <input type="file" name="image">
+      <input type="file" name="audio">
     </div>
     <div class="form-group">
       <label>Format:</label>
       <select class="form-control" name="audioformat">
         <option value="mp3">mp3</option>
-        <option value="mp4">mp4</option>
         <option value="ac3">ac3</option>
         <option value="aiff">aiff</option>
         <option value="ogg">ogg</option>
+        <option value="wav">wav</option>
+
       </select>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Bitrate:</label>
-      <input type="number" class="form-control" name="bitrate" value="0">
+      <select class="form-control" name="bitrate">
+        <option value="32k">32 kbit/s – generally acceptable only for speech</option>
+        <option value="96k">96 kbit/s – generally used for speech or low-quality streaming</option>
+        <option value="128k">128 kbit/s – mid-range bitrate quality</option>
+        <option value="192k">192 kbit/s – medium quality bitrate</option>
+        <option value="256k">256 kbit/s – a commonly used high-quality bitrate</option>
+        <option value="320k">320 kbit/s – highest level supported by the MP3 standard</option>
+      </select>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Sample Rate:</label>
-      <input type="number" class="form-control" name="samplerate" value="0">
+      <select class="form-control" name="samplerate">
+        <option value="8000">8000 Hz</option>
+        <option value="11025">11025 Hz</option>
+        <option value="22050">22050 Hz</option>
+        <option value="32000">32000 Hz</option>
+        <option value="44000">44000 Hz</option>
+        <option value="48000">48000 Hz</option>
+        <option value="64000">64000 Hz</option>
+        <option value="88200">88200 Hz</option>
+        <option value="96000">96000 Hz</option>
+      </select>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Channel:</label>
-      <input type="number" class="form-control" name="channel" value="0">
+      <select class="form-control" name="channel">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
     </div>
 
   </div><!-- /.box-body -->
@@ -91,7 +112,7 @@
 </form>
 
 
-  
+
       </div>
       </header>
 <footer>
@@ -121,8 +142,8 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/bootstrap/js/dragdrop.js"></script> 
-    <script src="vendor/bootstrap/js/dropzone.js"></script> 
+    <script src="vendor/bootstrap/js/dragdrop.js"></script>
+    <script src="vendor/bootstrap/js/dropzone.js"></script>
 
   </body>
 
